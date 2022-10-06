@@ -1,0 +1,122 @@
+VendingMachine-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    OBJECT-TYPE        FROM SNMPv2-SMI
+    DisplayString      FROM SNMPv2-TC
+
+VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
+
+-- 7. Product Information
+
+productInfoTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF ProductInfoTableEntry
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION ""
+    ::= { VendingMachine 7 }
+
+    -- 7.1 Instance of the ProductInfoTableEntry
+    productInfoTableEntry OBJECT-TYPE
+        SYNTAX ProductInfoTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTable 1 }
+
+    -- Entry sequence
+    ProductInfoTableEntry ::= SEQUENCE {
+        shelfLabel          DisplayString,
+        compartmentNumber   INTEGER,
+        productName         INTEGER,
+        productCost         DisplayString,
+        numberDispensed     INTEGER,
+        numberInStock       INTEGER,
+    }
+
+    shelfLabel OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 1 }
+    
+    compartmentNumber OBJECT-TYPE
+        SYNTAX INTEGER
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 2 }
+    
+    productName OBJECT-TYPE
+        SYNTAX INTEGER
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 3 }
+    
+    productCost OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 4 }
+    
+    numberDispensed OBJECT-TYPE
+        SYNTAX INTEGER
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 5 }
+    
+    numberInStock OBJECT-TYPE
+        SYNTAX INTEGER
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { productInfoTableEntry 6 }
+
+-- 8. Current Balance
+
+currentBalanceTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF CurrentBalanceTableEntry
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION ""
+    ::= { VendingMachine 8 }
+
+    currentBalanceTableEntry OBJECT-TYPE
+        SYNTAX CurrentBalanceTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { currentBalanceTable 1 }
+    
+    CurrentBalanceTableEntry ::= SEQUENCE {
+        denomination INTEGER,
+        totalNumber  INTEGER,
+    }
+
+    denomination OBJECT-TYPE
+        SYNTAX INTEGER,
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { CurrentBalanceTableEntry 1 }
+    
+    totalNumber OBJECT-TYPE
+        SYNTAX INTEGER,
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { CurrentBalanceTableEntry 2 }
+
+-- 9. Deposited value
+
+depositedValue OBJECT-TYPE
+    SYNTAX INTEGER
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION ""
+    ::= { VendingMachine 9 }
+
+END
