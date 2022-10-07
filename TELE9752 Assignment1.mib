@@ -9,7 +9,11 @@ VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
 -- 4. Contact Person
 
 personInfoTable OBJECT-TYPE
-    
+    SYNTAX SEQUENCE OF PersonInfoTable
+    ACCESS read-only
+    STATUS
+    DESCRIPTION ""
+    ::= {}
 
 -- 5. Last Visit Time
 
