@@ -8,6 +8,8 @@ VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
 
 -- 4. Contact Person
 
+personInfoTable OBJECT-TYPE
+    
 
 -- 5. Last Visit Time
 
