@@ -9,11 +9,14 @@ VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
 -- 4. Contact Person
 
 personInfoTable OBJECT-TYPE
-    SYNTAX SEQUENCE OF PersonInfoTable
-    ACCESS read-only
-    STATUS
+    SYNTAX SEQUENCE OF PersonInfoTableEntry
+    MAX-ACCESS read-write
+    STATUS current
     DESCRIPTION ""
-    ::= {}
+    ::= {VendingMachine 4}
+    
+    --4.1 & 4.2 Contact Person Name & Phone Num
+    
 
 -- 5. Last Visit Time
 
@@ -22,10 +25,10 @@ personInfoTable OBJECT-TYPE
 
 ipAdEntAddr OBJECT-TYPE
     SYNTAX IpAddress
-    ACCESS read-only
-    STATUS mandatory
+    MAX-ACCESS read-only
+    STATUS current
     DESCRIPTION ""
-    ::= {ipAddrEntry 1}
+    ::= {VendingMachine 6}
 
 -- 7. Product Information
 
