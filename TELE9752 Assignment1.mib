@@ -6,6 +6,15 @@ IMPORTS
 
 VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
 
+-- 6. Machine IP Address
+
+ipAdEntAddr OBJECT-TYPE
+    SYNTAX IpAddress
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION ""
+    ::= {ipAddrEntry 1}
+
 -- 7. Product Information
 
 productInfoTable OBJECT-TYPE
