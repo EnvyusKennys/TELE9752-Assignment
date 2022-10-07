@@ -6,6 +6,12 @@ IMPORTS
 
 VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
 
+-- 4. Contact Person
+
+
+-- 5. Last Visit Time
+
+
 -- 6. Machine IP Address
 
 ipAdEntAddr OBJECT-TYPE
