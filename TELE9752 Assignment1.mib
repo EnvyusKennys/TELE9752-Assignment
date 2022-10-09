@@ -16,10 +16,42 @@ personInfoTable OBJECT-TYPE
     ::= {VendingMachine 4}
     
     --4.1 & 4.2 Contact Person Name & Phone Num
+    personInfoTableEntry OBJECT-TYPE
+        SYNTAX PersonInfoTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { personInfoTable 1 }
+        
+    -- Entry sequence
+    PersonInfoTableEntry ::= SEQUENCE {
+        contactName          DisplayString,
+        phoneNumber          INTEGER,
+    }
+    
+    contactName OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { personInfoTableEntry 1 }
+    
+    phoneNumber OBJECT-TYPE
+        SYNTAX INTEGER
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION ""
+        ::= { personInfoTableEntry 2 }
     
 
 -- 5. Last Visit Time
 
+lastVisitTime OBJECT-TYPE
+    SYNTAX DisplayString
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION ""
+    ::= { VendingMachine 5 }
 
 -- 6. Machine IP Address
 
