@@ -1,10 +1,134 @@
 VendingMachine-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
-    OBJECT-TYPE        FROM SNMPv2-SMI
-    DisplayString      FROM SNMPv2-TC
+    OBJECT-TYPE, IpAddress        FROM SNMPv2-SMI
+    DisplayString                 FROM SNMPv2-TC
+    InetAddress                   FROM INET-ADDRESS-MIB;
 
-VendingMachine    OBJECT IDENTIFIER ::= { enterprises 8 }
+VendingMachine     OBJECT IDENTIFIER ::= { enterprises 10 }
+
+VendingMachine-MIB DEFINITIONS ::= BEGIN
+
+
+-- 1. Machine Spec
+
+machineSpecTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF MachineSpecTableEntry
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION 
+        ""
+    ::= { VendingMachine 1 }
+
+    machineSpecTableEntry OBJECT-TYPE
+        SYNTAX MachineSpecTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= {machineSpecTable 1}
+
+    MachineSpecTableEntry ::= SEQUENCE {
+        machineModelName     DisplayString,
+        machineModelNumber   INTEGER,
+    }
+
+    machineModelName OBJECT-TYPE
+        SYNTAX DisplayString,
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= { MachineSpecTableEntry 1}
+
+    machineModelNumber OBJECT-TYPE
+        SYNTAX INTEGER,
+        MAX-ACCESS read-write
+        STATUS current 
+        DESCRIPTION 
+            ""
+        ::= { MachineSpecTableEntry 2}
+
+
+-- 2. Product Handbook
+
+productHandbookTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF ProductHandbookTableEntry
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION 
+        ""
+    ::= { VendingMachine 2 }
+
+    productHandbookTableEntry OBJECT-TYPE
+        SYNTAX ProductHandbookTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= {productHandbookTable 1}
+
+    ProductHandbookTableEntry ::= SEQUENCE {
+        hardwaresTextualName   DisplayString,
+        softwareTextualName    DisplayString,
+    }
+
+    hardwaresTextualName OBJECT-TYPE
+        SYNTAX DisplayString,
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= { ProductHandbookTableEntry 1}
+
+    softwaresTextualName OBJECT-TYPE
+        SYNTAX DisplayString,
+        MAX-ACCESS read-write
+        STATUS current 
+        DESCRIPTION 
+            ""
+        ::= { ProductHandbookTableEntry 2}
+
+
+-- 3. Physical Location
+
+physicalLocationTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF PhysicalLocationTableEntry
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION 
+        ""
+    ::= { VendingMachine 3 }
+
+    physicalLocationTableEntry OBJECT-TYPE
+        SYNTAX PhysicalLocationTableEntry
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= {physicalLocationTable 1}
+
+    PhysicalLocationTableEntry ::= SEQUENCE {
+        macAddress      INTEGER,
+        globalAddress   INTEGER,
+    }
+
+    macAddress OBJECT-TYPE
+        SYNTAX INTEGER,
+        MAX-ACCESS read-write
+        STATUS current
+        DESCRIPTION 
+            ""
+        ::= { physicalLocationTableEntry 1}
+
+    globalAddress OBJECT-TYPE
+        SYNTAX INTEGER,
+        MAX-ACCESS read-write
+        STATUS current 
+        DESCRIPTION 
+            ""
+        ::= { physicalLocationTableEntry 2}
+
 
 -- 4. Contact Person
 
@@ -12,7 +136,8 @@ personInfoTable OBJECT-TYPE
     SYNTAX SEQUENCE OF PersonInfoTableEntry
     MAX-ACCESS read-write
     STATUS current
-    DESCRIPTION ""
+    DESCRIPTION 
+        ""
     ::= {VendingMachine 4}
     
     --4.1 & 4.2 Contact Person Name & Phone Num
@@ -20,7 +145,8 @@ personInfoTable OBJECT-TYPE
         SYNTAX PersonInfoTableEntry
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { personInfoTable 1 }
         
     -- Entry sequence
@@ -33,14 +159,16 @@ personInfoTable OBJECT-TYPE
         SYNTAX DisplayString
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { personInfoTableEntry 1 }
     
     phoneNumber OBJECT-TYPE
         SYNTAX INTEGER
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { personInfoTableEntry 2 }
     
 
@@ -50,8 +178,10 @@ lastVisitTime OBJECT-TYPE
     SYNTAX DisplayString
     MAX-ACCESS read-write
     STATUS current
-    DESCRIPTION ""
+    DESCRIPTION 
+        ""
     ::= { VendingMachine 5 }
+
 
 -- 6. Machine IP Address
 
@@ -59,8 +189,10 @@ ipAdEntAddr OBJECT-TYPE
     SYNTAX IpAddress
     MAX-ACCESS read-only
     STATUS current
-    DESCRIPTION ""
-    ::= {VendingMachine 6}
+    DESCRIPTION 
+        ""
+    ::= { VendingMachine 6}
+
 
 -- 7. Product Information
 
@@ -68,7 +200,8 @@ productInfoTable OBJECT-TYPE
     SYNTAX SEQUENCE OF ProductInfoTableEntry
     MAX-ACCESS read-write
     STATUS current
-    DESCRIPTION ""
+    DESCRIPTION 
+        ""
     ::= { VendingMachine 7 }
 
     -- 7.1 Instance of the ProductInfoTableEntry
@@ -76,7 +209,8 @@ productInfoTable OBJECT-TYPE
         SYNTAX ProductInfoTableEntry
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTable 1 }
 
     -- Entry sequence
@@ -100,36 +234,42 @@ productInfoTable OBJECT-TYPE
         SYNTAX INTEGER
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTableEntry 2 }
     
     productName OBJECT-TYPE
         SYNTAX INTEGER
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTableEntry 3 }
     
     productCost OBJECT-TYPE
         SYNTAX DisplayString
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTableEntry 4 }
     
     numberDispensed OBJECT-TYPE
         SYNTAX INTEGER
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTableEntry 5 }
     
     numberInStock OBJECT-TYPE
         SYNTAX INTEGER
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { productInfoTableEntry 6 }
+
 
 -- 8. Current Balance
 
@@ -137,14 +277,16 @@ currentBalanceTable OBJECT-TYPE
     SYNTAX SEQUENCE OF CurrentBalanceTableEntry
     MAX-ACCESS read-write
     STATUS current
-    DESCRIPTION ""
+    DESCRIPTION 
+        ""
     ::= { VendingMachine 8 }
 
     currentBalanceTableEntry OBJECT-TYPE
         SYNTAX CurrentBalanceTableEntry
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            ""
         ::= { currentBalanceTable 1 }
     
     CurrentBalanceTableEntry ::= SEQUENCE {
@@ -156,15 +298,18 @@ currentBalanceTable OBJECT-TYPE
         SYNTAX INTEGER,
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
-        ::= { CurrentBalanceTableEntry 1 }
+        DESCRIPTION 
+            ""
+        ::= { currentBalanceTableEntry 1 }
     
     totalNumber OBJECT-TYPE
         SYNTAX INTEGER,
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
-        ::= { CurrentBalanceTableEntry 2 }
+        DESCRIPTION 
+            ""
+        ::= { currentBalanceTableEntry 2 }
+
 
 -- 9. Deposited value
 
@@ -172,7 +317,8 @@ depositedValue OBJECT-TYPE
     SYNTAX INTEGER
     MAX-ACCESS read-write
     STATUS current
-    DESCRIPTION ""
+    DESCRIPTION 
+            ""
     ::= { VendingMachine 9 }
 
 END
