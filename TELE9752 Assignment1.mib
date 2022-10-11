@@ -39,7 +39,7 @@ machineSpecTable OBJECT-TYPE
         STATUS current
         DESCRIPTION 
             ""
-        ::= { MachineSpecTableEntry 1}
+        ::= { machineSpecTableEntry 1}
 
     machineModelNumber OBJECT-TYPE
         SYNTAX INTEGER,
@@ -47,7 +47,7 @@ machineSpecTable OBJECT-TYPE
         STATUS current 
         DESCRIPTION 
             ""
-        ::= { MachineSpecTableEntry 2}
+        ::= { machineSpecTableEntry 2}
 
 
 -- 2. Product Handbook
@@ -79,7 +79,7 @@ productHandbookTable OBJECT-TYPE
         STATUS current
         DESCRIPTION 
             ""
-        ::= { ProductHandbookTableEntry 1}
+        ::= { productHandbookTableEntry 1}
 
     softwaresTextualName OBJECT-TYPE
         SYNTAX DisplayString,
@@ -87,7 +87,7 @@ productHandbookTable OBJECT-TYPE
         STATUS current 
         DESCRIPTION 
             ""
-        ::= { ProductHandbookTableEntry 2}
+        ::= { productHandbookTableEntry 2}
 
 
 -- 3. Physical Location
@@ -201,7 +201,8 @@ productInfoTable OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-        ""
+        "This table stores all the information of the product in the vending machine.
+        Each of the product is labeled with their name and cost, and their location and current selling record."
     ::= { VendingMachine 7 }
 
     -- 7.1 Instance of the ProductInfoTableEntry
@@ -210,7 +211,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "An entry in the productInfoTable."
         ::= { productInfoTable 1 }
 
     -- Entry sequence
@@ -227,7 +228,8 @@ productInfoTable OBJECT-TYPE
         SYNTAX DisplayString
         MAX-ACCESS read-write
         STATUS current
-        DESCRIPTION ""
+        DESCRIPTION 
+            "This is the shlef label of the product. (A, B, C...)"
         ::= { productInfoTableEntry 1 }
     
     compartmentNumber OBJECT-TYPE
@@ -235,7 +237,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the compartment number of the product. (1, 2, 3...)"
         ::= { productInfoTableEntry 2 }
     
     productName OBJECT-TYPE
@@ -243,7 +245,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the name of the product. (coke, fanta...)"
         ::= { productInfoTableEntry 3 }
     
     productCost OBJECT-TYPE
@@ -251,7 +253,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the cost (in cents) of the product."
         ::= { productInfoTableEntry 4 }
     
     numberDispensed OBJECT-TYPE
@@ -259,7 +261,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the number of products dispensed by the vending machine since the last switch on."
         ::= { productInfoTableEntry 5 }
     
     numberInStock OBJECT-TYPE
@@ -267,7 +269,7 @@ productInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the current product's number in stock."
         ::= { productInfoTableEntry 6 }
 
 
@@ -278,7 +280,8 @@ currentBalanceTable OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-        ""
+        "This table stores all the balance information of the vending machine. It indicates all types of denomincation
+        and the number left in the machine for further use."
     ::= { VendingMachine 8 }
 
     currentBalanceTableEntry OBJECT-TYPE
@@ -286,7 +289,7 @@ currentBalanceTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "An entry in the currentBalanceTable."
         ::= { currentBalanceTable 1 }
     
     CurrentBalanceTableEntry ::= SEQUENCE {
@@ -299,7 +302,7 @@ currentBalanceTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the coin type which indexed in cents."
         ::= { currentBalanceTableEntry 1 }
     
     totalNumber OBJECT-TYPE
@@ -307,7 +310,7 @@ currentBalanceTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "This is the total number of coins left inside the machine for the particular denomination."
         ::= { currentBalanceTableEntry 2 }
 
 
@@ -318,7 +321,7 @@ depositedValue OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-            ""
+            "This is the amount of money depoisted for a certain product which hasn't been dispensed."
     ::= { VendingMachine 9 }
 
 END
