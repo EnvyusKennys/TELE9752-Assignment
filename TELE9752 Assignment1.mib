@@ -137,7 +137,7 @@ personInfoTable OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-        ""
+        "This table contains names of contact persons and corresponding phone numbers of each machine in case of problems."
     ::= {VendingMachine 4}
     
     --4.1 & 4.2 Contact Person Name & Phone Num
@@ -146,7 +146,7 @@ personInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "An entry in personInfoTable."
         ::= { personInfoTable 1 }
         
     -- Entry sequence
@@ -160,7 +160,7 @@ personInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "Name of the contact person."
         ::= { personInfoTableEntry 1 }
     
     phoneNumber OBJECT-TYPE
@@ -168,7 +168,7 @@ personInfoTable OBJECT-TYPE
         MAX-ACCESS read-write
         STATUS current
         DESCRIPTION 
-            ""
+            "Phone number of the contact person."
         ::= { personInfoTableEntry 2 }
     
 
@@ -179,7 +179,7 @@ lastVisitTime OBJECT-TYPE
     MAX-ACCESS read-write
     STATUS current
     DESCRIPTION 
-        ""
+        "This table contains the time since the machine last operated."
     ::= { VendingMachine 5 }
 
 
@@ -190,7 +190,7 @@ ipAdEntAddr OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS current
     DESCRIPTION 
-        ""
+        "This table contains the IP Address of each machine"
     ::= { VendingMachine 6}
 
 
