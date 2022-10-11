@@ -1,0 +1,37 @@
+MachineSpec
+DESCRIPTION
+"This is the details of vending machine specs"
+
+MachineModelName
+DESCRIPTION
+"The name of vending machine model"
+
+MachineModelNumber
+DESCRIPTION
+"The vending machine model number"
+
+
+ProductHandbook
+DESCRIPTION
+"This is the vending machine handbook and manual"
+
+HardwareTextualName
+DESCRIPTION
+"This is the detail of hardware's textual name and description"
+
+SoftwareTextualName
+DESCRIPTION
+"This is the detail of software's textual name and description"
+
+
+PhysicalLocation
+DESCRIPTION
+"This is the detail of physical location of vending machine"
+
+MacAddress
+DESCRIPTION
+"This is the MAC Address for vending machine located"
+
+GlobalAddress
+DESCRIPTION
+"This is the vending machine Global Address"
