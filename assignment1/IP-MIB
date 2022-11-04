@@ -1,11 +1,7 @@
 IP-MIB DEFINITIONS ::= BEGIN
 
 --
--- Kenny Notes: 
--- 	1. Include object id is very important, e.g. ::= { ip 1 }
--- 	2. Sequence varaible needs to be captilizsed, other variable must be small case.
--- 	3. 1 for coke, 2 for sprite, this kind of mapping could just commented in the DESCRIPTION section.
---
+
 
 IMPORTS
     MODULE-IDENTITY, OBJECT-TYPE,
