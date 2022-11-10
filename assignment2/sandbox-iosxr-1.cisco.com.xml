@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rpc-reply message-id="urn:uuid:2e6c59ab-3c59-4e14-9946-7d4dba2e2756" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+<rpc-reply message-id="urn:uuid:b4f83d58-4f03-4204-9f89-6c74796f1dd2" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
  <data>
   <aaa xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-lib-cfg">
    <usernames xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-aaa-locald-cfg">
@@ -88,11 +88,34 @@
      <name>nihohahah</name>
      <secret>
       <type>type10</type>
-      <secret10>$6$Ndoq808hhWPf680.$iHhVV1/AX4ZVYyDfQkxn7P/F2Wcbxo4HuLYpFLFvke4aR0mGLWMcIvOJywE2eEs78RCVr3pAxSo1yNOjsjGXZ.</secret10>
+      <secret10>$6$6Je0p0ZeEh8I9p0.$GRuD2V9Q0BGCI89qJK7UqgeyBVZuQifXAxX9V.RTDREW5FTeXad.UY0FTXEJfKW5e2DhddPUHXATooxkEeGKE/</secret10>
+     </secret>
+    </username>
+    <username>
+     <ordering-index>9</ordering-index>
+     <name>hashsgfhs</name>
+     <secret>
+      <type>type10</type>
+      <secret10>$6$MKGbk/Zo7QR05k/.$7IolpHHSZ7FFTzZNU2ksYfqs.YKQ9fC2D8ZKmfAHMCcz1A/jKDTcDDMaho27nKTjC5gNhe5xFu0RpfOZDTW2T/</secret10>
      </secret>
     </username>
    </usernames>
   </aaa>
+  <snmp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-snmp-agent-cfg">
+   <vrfs>
+    <vrf>
+     <name>default</name>
+    </vrf>
+   </vrfs>
+   <administration>
+    <default-communities>
+     <default-community>
+      <community-name>devnet</community-name>
+      <priviledge>read-only</priviledge>
+     </default-community>
+    </default-communities>
+   </administration>
+  </snmp>
   <xr-xml xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-xml-ttyagent-cfg">
    <agent>
     <tty>
@@ -108,6 +131,34 @@
     </tty>
    </agent>
   </netconf>
+  <bgp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
+   <instance>
+    <instance-name>default</instance-name>
+    <instance-as>
+     <as>0</as>
+     <four-byte-as>
+      <as>264668</as>
+      <bgp-running></bgp-running>
+      <default-vrf>
+       <global>
+        <global-afs>
+         <global-af>
+          <af-name>ipv4-unicast</af-name>
+          <enable></enable>
+          <sourced-networks>
+           <sourced-network>
+            <network-addr>100.1.1.0</network-addr>
+            <network-prefix>24</network-prefix>
+           </sourced-network>
+          </sourced-networks>
+         </global-af>
+        </global-afs>
+       </global>
+      </default-vrf>
+     </four-byte-as>
+    </instance-as>
+   </instance>
+  </bgp>
   <call-home xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-call-home-cfg">
    <active></active>
    <contact-smart-licensing>true</contact-smart-licensing>
@@ -131,6 +182,9 @@
   <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-ospf-cfg">
    <processes>
     <process>
+     <process-name>10</process-name>
+    </process>
+    <process>
      <process-name>ospf</process-name>
      <default-vrf>
       <process-scope>
@@ -150,6 +204,7 @@
   </ospf>
   <grpc xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-man-ems-cfg">
    <port>57777</port>
+   <no-tls></no-tls>
    <enable></enable>
    <address-family>ipv4</address-family>
   </grpc>
@@ -216,14 +271,6 @@
    <vrf>
     <vrf-name>PikachuSite</vrf-name>
     <create></create>
-    <bgp-global xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg">
-     <route-distinguisher>
-      <type>as</type>
-      <as-xx>0</as-xx>
-      <as>65000</as>
-      <as-index>10</as-index>
-     </route-distinguisher>
-    </bgp-global>
    </vrf>
   </vrfs>
   <tty xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-tty-server-cfg">
@@ -269,6 +316,38 @@
   <interface-configurations xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg">
    <interface-configuration>
     <active>act</active>
+    <interface-name>Loopback11</interface-name>
+    <interface-virtual></interface-virtual>
+    <ipv6-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ma-cfg">
+     <addresses>
+      <regular-addresses>
+       <regular-address>
+        <address>2001:db8::</address>
+        <prefix-length>128</prefix-length>
+        <zone>0</zone>
+       </regular-address>
+      </regular-addresses>
+     </addresses>
+    </ipv6-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>Loopback21</interface-name>
+    <interface-virtual></interface-virtual>
+    <ipv6-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ma-cfg">
+     <addresses>
+      <regular-addresses>
+       <regular-address>
+        <address>2001:db8::</address>
+        <prefix-length>128</prefix-length>
+        <zone>0</zone>
+       </regular-address>
+      </regular-addresses>
+     </addresses>
+    </ipv6-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
     <interface-name>Loopback100</interface-name>
     <interface-virtual></interface-virtual>
     <description>***MERGE LOOPBACK 100****</description>
@@ -277,6 +356,19 @@
       <primary>
        <address>1.1.1.100</address>
        <netmask>255.255.255.255</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>Loopback111</interface-name>
+    <interface-virtual></interface-virtual>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>10.10.10.111</address>
+       <netmask>255.255.255.0</netmask>
       </primary>
      </addresses>
     </ipv4-network>
@@ -336,6 +428,19 @@
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
+    <interface-name>Loopback1001</interface-name>
+    <interface-virtual></interface-virtual>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>11.1.1.1</address>
+       <netmask>255.255.255.255</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
+   </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
     <interface-name>MgmtEth0/RP0/CPU0/0</interface-name>
     <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
      <addresses>
@@ -354,7 +459,14 @@
    <interface-configuration>
     <active>act</active>
     <interface-name>GigabitEthernet0/0/0/1</interface-name>
-    <shutdown></shutdown>
+    <ipv4-network xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-io-cfg">
+     <addresses>
+      <primary>
+       <address>192.168.12.2</address>
+       <netmask>255.255.255.0</netmask>
+      </primary>
+     </addresses>
+    </ipv4-network>
    </interface-configuration>
    <interface-configuration>
     <active>act</active>
@@ -381,6 +493,30 @@
     <interface-name>GigabitEthernet0/0/0/6</interface-name>
     <shutdown></shutdown>
    </interface-configuration>
+   <interface-configuration>
+    <active>act</active>
+    <interface-name>GigabitEthernet0/0/0/6.1000</interface-name>
+    <interface-mode-non-physical>default</interface-mode-non-physical>
+    <lldp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-lldp-cfg">
+     <lldp-intf-enter>true</lldp-intf-enter>
+    </lldp>
+    <vlan-sub-configuration xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-l2-eth-infra-cfg">
+     <vlan-identifier>
+      <vlan-type>vlan-type-dot1q</vlan-type>
+      <first-tag>1000</first-tag>
+     </vlan-identifier>
+    </vlan-sub-configuration>
+   </interface-configuration>
+   <interface-configuration>
+    <active>pre</active>
+    <interface-name>TenGigE0/0/0/0/0</interface-name>
+    <bundle-member xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-bundlemgr-cfg">
+     <id>
+      <bundle-id>2</bundle-id>
+      <port-activity>active</port-activity>
+     </id>
+    </bundle-member>
+   </interface-configuration>
   </interface-configurations>
   <ssh xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-crypto-ssh-cfg">
    <server>
@@ -401,6 +537,27 @@
   </ssh>
   <ipv4-acl-and-prefix-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-acl-cfg">
    <accesses>
+    <access>
+     <access-list-name>IPv4-ACL</access-list-name>
+     <access-list-entries>
+      <access-list-entry>
+       <sequence-number>10</sequence-number>
+       <grant>deny</grant>
+       <protocol>tcp</protocol>
+       <destination-network>
+        <destination-address>198.51.100.0</destination-address>
+        <destination-wild-card-bits>0.0.0.255</destination-wild-card-bits>
+       </destination-network>
+       <sequence-str>10</sequence-str>
+      </access-list-entry>
+      <access-list-entry>
+       <sequence-number>20</sequence-number>
+       <grant>permit</grant>
+       <protocol>tcp</protocol>
+       <sequence-str>20</sequence-str>
+      </access-list-entry>
+     </access-list-entries>
+    </access>
     <access>
      <access-list-name>TEST_ACL</access-list-name>
      <access-list-entries>
@@ -483,6 +640,36 @@
   <ipv4 xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-ipv4-access-list-cfg">
    <access-lists>
     <access-list>
+     <access-list-name>IPv4-ACL</access-list-name>
+     <sequences>
+      <sequence>
+       <sequence-number>10</sequence-number>
+       <deny>
+        <protocol>tcp</protocol>
+        <source>
+         <any/>
+        </source>
+        <destination>
+         <address>198.51.100.0</address>
+         <wildcard-mask>0.0.0.255</wildcard-mask>
+        </destination>
+       </deny>
+      </sequence>
+      <sequence>
+       <sequence-number>20</sequence-number>
+       <permit>
+        <protocol>tcp</protocol>
+        <source>
+         <any/>
+        </source>
+        <destination>
+         <any/>
+        </destination>
+       </permit>
+      </sequence>
+     </sequences>
+    </access-list>
+    <access-list>
      <access-list-name>TEST_ACL</access-list-name>
      <sequences>
       <sequence>
@@ -520,6 +707,30 @@
   </ipv4>
   <interfaces xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-interface-cfg">
    <interface>
+    <interface-name>Loopback11</interface-name>
+    <ipv6>
+     <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
+      <ipv6-address>
+       <address>2001:db8::</address>
+       <prefix-length>128</prefix-length>
+       <zone>0</zone>
+      </ipv6-address>
+     </addresses>
+    </ipv6>
+   </interface>
+   <interface>
+    <interface-name>Loopback21</interface-name>
+    <ipv6>
+     <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
+      <ipv6-address>
+       <address>2001:db8::</address>
+       <prefix-length>128</prefix-length>
+       <zone>0</zone>
+      </ipv6-address>
+     </addresses>
+    </ipv6>
+   </interface>
+   <interface>
     <interface-name>Loopback100</interface-name>
     <description>***MERGE LOOPBACK 100****</description>
     <ipv4>
@@ -527,6 +738,17 @@
       <address>
        <address>1.1.1.100</address>
        <netmask>255.255.255.255</netmask>
+      </address>
+     </addresses>
+    </ipv4>
+   </interface>
+   <interface>
+    <interface-name>Loopback111</interface-name>
+    <ipv4>
+     <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
+      <address>
+       <address>10.10.10.111</address>
+       <netmask>255.255.255.0</netmask>
       </address>
      </addresses>
     </ipv4>
@@ -577,6 +799,17 @@
     </ipv4>
    </interface>
    <interface>
+    <interface-name>Loopback1001</interface-name>
+    <ipv4>
+     <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
+      <address>
+       <address>11.1.1.1</address>
+       <netmask>255.255.255.255</netmask>
+      </address>
+     </addresses>
+    </ipv4>
+   </interface>
+   <interface>
     <interface-name>MgmtEth0/RP0/CPU0/0</interface-name>
     <ipv4>
      <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
@@ -593,7 +826,14 @@
    </interface>
    <interface>
     <interface-name>GigabitEthernet0/0/0/1</interface-name>
-    <shutdown/>
+    <ipv4>
+     <addresses xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-ip-address-cfg">
+      <address>
+       <address>192.168.12.2</address>
+       <netmask>255.255.255.0</netmask>
+      </address>
+     </addresses>
+    </ipv4>
    </interface>
    <interface>
     <interface-name>GigabitEthernet0/0/0/2</interface-name>
@@ -615,10 +855,30 @@
     <interface-name>GigabitEthernet0/0/0/6</interface-name>
     <shutdown/>
    </interface>
+   <interface>
+    <interface-name>GigabitEthernet0/0/0/6.1000</interface-name>
+    <encapsulation xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-l2-ethernet-cfg">
+     <dot1q>
+      <vlan-id>1000</vlan-id>
+     </dot1q>
+    </encapsulation>
+   </interface>
+   <interface-preconfigure>
+    <interface-name>TenGigE0/0/0/0/0</interface-name>
+    <bundle xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-if-bundle-cfg">
+     <id>
+      <bundle-id>2</bundle-id>
+      <mode>active</mode>
+     </id>
+    </bundle>
+   </interface-preconfigure>
   </interfaces>
   <router xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-router-ospf-cfg">
    <ospf>
     <processes>
+     <process>
+      <process-name>10</process-name>
+     </process>
      <process>
       <process-name>ospf</process-name>
       <network>
@@ -659,6 +919,7 @@
   </router>
   <grpc xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-grpc-cfg">
    <port>57777</port>
+   <no-tls/>
    <address-family>
     <ipv4/>
    </address-family>
@@ -683,12 +944,6 @@
    </vrf>
    <vrf>
     <vrf-name>PikachuSite</vrf-name>
-    <rd xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-router-bgp-cfg">
-     <two-byte-as>
-      <as-number>65000</as-number>
-      <index>10</index>
-     </two-byte-as>
-    </rd>
    </vrf>
   </vrfs>
   <ipv6 xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-ipv6-access-list-cfg">
@@ -729,6 +984,24 @@
     </access-list>
    </access-lists>
   </ipv6>
+  <router xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-um-router-bgp-cfg">
+   <bgp>
+    <as>
+     <as-number>264668</as-number>
+     <address-families>
+      <address-family>
+       <af-name>ipv4-unicast</af-name>
+       <networks>
+        <network>
+         <address>100.1.1.0</address>
+         <masklength>24</masklength>
+        </network>
+       </networks>
+      </address-family>
+     </address-families>
+    </as>
+   </bgp>
+  </router>
   <aaa xmlns="http://tail-f.com/ns/aaa/1.1">
    <authentication>
     <users>
@@ -1243,7 +1516,14 @@
        <username>nihohahah</username>
        <config>
         <username>nihohahah</username>
-        <password-hashed>$6$Ndoq808hhWPf680.$iHhVV1/AX4ZVYyDfQkxn7P/F2Wcbxo4HuLYpFLFvke4aR0mGLWMcIvOJywE2eEs78RCVr3pAxSo1yNOjsjGXZ.</password-hashed>
+        <password-hashed>$6$6Je0p0ZeEh8I9p0.$GRuD2V9Q0BGCI89qJK7UqgeyBVZuQifXAxX9V.RTDREW5FTeXad.UY0FTXEJfKW5e2DhddPUHXATooxkEeGKE/</password-hashed>
+       </config>
+      </user>
+      <user>
+       <username>hashsgfhs</username>
+       <config>
+        <username>hashsgfhs</username>
+        <password-hashed>$6$MKGbk/Zo7QR05k/.$7IolpHHSZ7FFTzZNU2ksYfqs.YKQ9fC2D8ZKmfAHMCcz1A/jKDTcDDMaho27nKTjC5gNhe5xFu0RpfOZDTW2T/</password-hashed>
        </config>
       </user>
      </users>
@@ -1252,6 +1532,7 @@
    <grpc-server>
     <config>
      <port>57777</port>
+     <transport-security>false</transport-security>
      <enable>true</enable>
     </config>
    </grpc-server>
@@ -1269,6 +1550,30 @@
    <network-instance>
     <name>default</name>
     <protocols>
+     <protocol>
+      <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:BGP</identifier>
+      <name>default</name>
+      <config>
+       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:BGP</identifier>
+       <name>default</name>
+      </config>
+      <bgp>
+       <global>
+        <config>
+         <as>264668</as>
+        </config>
+        <afi-safis>
+         <afi-safi>
+          <afi-safi-name xmlns:idx="http://openconfig.net/yang/bgp-types">idx:IPV4_UNICAST</afi-safi-name>
+          <config>
+           <afi-safi-name xmlns:idx="http://openconfig.net/yang/bgp-types">idx:IPV4_UNICAST</afi-safi-name>
+           <enabled>true</enabled>
+          </config>
+         </afi-safi>
+        </afi-safis>
+       </global>
+      </bgp>
+     </protocol>
      <protocol>
       <identifier xmlns:idx="http://openconfig.net/yang/policy-types">idx:STATIC</identifier>
       <name>DEFAULT</name>
@@ -1312,11 +1617,56 @@
     <name>PikachuSite</name>
     <config>
      <name>PikachuSite</name>
-     <route-distinguisher>65000:10</route-distinguisher>
     </config>
    </network-instance>
   </network-instances>
   <interfaces xmlns="http://openconfig.net/yang/interfaces">
+   <interface>
+    <name>Loopback11</name>
+    <config>
+     <name>Loopback11</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:softwareLoopback</type>
+    </config>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>2001:db8::</ip>
+         <config>
+          <ip>2001:db8::</ip>
+          <prefix-length>128</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv6>
+     </subinterface>
+    </subinterfaces>
+   </interface>
+   <interface>
+    <name>Loopback21</name>
+    <config>
+     <name>Loopback21</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:softwareLoopback</type>
+    </config>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>2001:db8::</ip>
+         <config>
+          <ip>2001:db8::</ip>
+          <prefix-length>128</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv6>
+     </subinterface>
+    </subinterfaces>
+   </interface>
    <interface>
     <name>Loopback100</name>
     <config>
@@ -1334,6 +1684,29 @@
          <config>
           <ip>1.1.1.100</ip>
           <prefix-length>32</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
+   </interface>
+   <interface>
+    <name>Loopback111</name>
+    <config>
+     <name>Loopback111</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:softwareLoopback</type>
+    </config>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>10.10.10.111</ip>
+         <config>
+          <ip>10.10.10.111</ip>
+          <prefix-length>24</prefix-length>
          </config>
         </address>
        </addresses>
@@ -1435,6 +1808,29 @@
     </subinterfaces>
    </interface>
    <interface>
+    <name>Loopback1001</name>
+    <config>
+     <name>Loopback1001</name>
+     <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:softwareLoopback</type>
+    </config>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>11.1.1.1</ip>
+         <config>
+          <ip>11.1.1.1</ip>
+          <prefix-length>32</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
+   </interface>
+   <interface>
     <name>MgmtEth0/RP0/CPU0/0</name>
     <config>
      <name>MgmtEth0/RP0/CPU0/0</name>
@@ -1480,13 +1876,28 @@
     <config>
      <name>GigabitEthernet0/0/0/1</name>
      <type xmlns:idx="urn:ietf:params:xml:ns:yang:iana-if-type">idx:ethernetCsmacd</type>
-     <enabled>false</enabled>
     </config>
     <ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
      <config>
       <auto-negotiate>false</auto-negotiate>
      </config>
     </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>0</index>
+      <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+       <addresses>
+        <address>
+         <ip>192.168.12.2</ip>
+         <config>
+          <ip>192.168.12.2</ip>
+          <prefix-length>24</prefix-length>
+         </config>
+        </address>
+       </addresses>
+      </ipv4>
+     </subinterface>
+    </subinterfaces>
    </interface>
    <interface>
     <name>GigabitEthernet0/0/0/2</name>
@@ -1552,10 +1963,66 @@
       <auto-negotiate>false</auto-negotiate>
      </config>
     </ethernet>
+    <subinterfaces>
+     <subinterface>
+      <index>1000</index>
+      <config>
+       <index>1000</index>
+      </config>
+      <vlan xmlns="http://openconfig.net/yang/vlan">
+       <config>
+        <vlan-id>1000</vlan-id>
+       </config>
+      </vlan>
+     </subinterface>
+    </subinterfaces>
    </interface>
   </interfaces>
   <acl xmlns="http://openconfig.net/yang/acl">
    <acl-sets>
+    <acl-set>
+     <name>IPv4-ACL</name>
+     <type>ACL_IPV4</type>
+     <config>
+      <name>IPv4-ACL</name>
+      <type>ACL_IPV4</type>
+     </config>
+     <acl-entries>
+      <acl-entry>
+       <sequence-id>10</sequence-id>
+       <config>
+        <sequence-id>10</sequence-id>
+       </config>
+       <actions>
+        <config>
+         <forwarding-action>REJECT</forwarding-action>
+        </config>
+       </actions>
+       <ipv4>
+        <config>
+         <protocol>6</protocol>
+         <destination-address>198.51.100.0/24</destination-address>
+        </config>
+       </ipv4>
+      </acl-entry>
+      <acl-entry>
+       <sequence-id>20</sequence-id>
+       <config>
+        <sequence-id>20</sequence-id>
+       </config>
+       <actions>
+        <config>
+         <forwarding-action>ACCEPT</forwarding-action>
+        </config>
+       </actions>
+       <ipv4>
+        <config>
+         <protocol>6</protocol>
+        </config>
+       </ipv4>
+      </acl-entry>
+     </acl-entries>
+    </acl-set>
     <acl-set>
      <name>TEST_ACL</name>
      <type>ACL_IPV4</type>
